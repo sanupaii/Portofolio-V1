@@ -21,9 +21,9 @@ const Hero = () => {
           {/* <motion.p className="text-cyan-400 font-medium tracking-wide uppercase">
             Selamat Datang!
           </motion.p> */}
-          <h1 className="text-5xl md:text-7xl font-bold">
-            Frontend
-            <span className="block mt-1 text-gradient-neon">Developer</span>
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            Hi, I'm <br />
+            <span className="text-gradient-neon">Sanu Ahadi</span>
           </h1>
 
           <div className="text-xl md:text-2xl font-semibold h-8 md:h-10">
