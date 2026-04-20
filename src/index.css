@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-cyan: #06b6d4;
+  --color-neon-emerald: #10b981;
+  --color-neon-purple: #a855f7;
+  --color-neon-pink: #ec4899;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-300 antialiased overflow-x-hidden select-none cursor-default;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white font-bold leading-tight tracking-tight;
+  }
+  
+  /* Make sure inputs and textareas allow typing and selection */
+  input, textarea {
+    @apply select-text cursor-text;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-size: 30px 30px;
+    background-image: 
+      linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+  }
+
+  .spotlight-mask {
+    mask-image: radial-gradient(circle at center, black 10%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  }
+
+  .text-gradient-neon {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500;
+  }
+
+  .glassmorphism {
+    @apply bg-slate-950/60 backdrop-blur-md border-b border-white/5;
+  }
+
+  .neon-glow-primary {
+    @apply shadow-[0_0_20px_rgba(6,182,212,0.4)];
+  }
+  
+  .neon-glow-text {
+    @apply drop-shadow-[0_0_10px_rgba(6,182,212,0.8)];
+  }
+}
