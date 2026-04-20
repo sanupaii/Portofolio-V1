@@ -5,9 +5,22 @@
   --color-neon-emerald: #10b981;
   --color-neon-purple: #a855f7;
   --color-neon-pink: #ec4899;
+  --animate-shine: shine 1.5s ease;
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 125%;
+    }
+  }
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-slate-950 text-slate-300 antialiased overflow-x-hidden select-none cursor-default;
   }

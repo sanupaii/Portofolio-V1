@@ -16,12 +16,19 @@ function App() {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center">
         <Navbar />
-        <main className="w-full max-w-6xl px-6 flex flex-col gap-32 pb-32">
+        <main className="w-full max-w-6xl px-6 flex flex-col gap-4 md:gap-8 pb-16">
           <Hero />
           <About />
           <Portfolio />
           <Contact />
         </main>
+
+        {/* Footer */}
+        <footer className="w-full text-center py-8 border-t border-slate-800/50 mt-auto">
+          <p className="text-slate-500 text-sm font-medium tracking-wide">
+            &copy; {new Date().getFullYear()} Sanupaii&trade;. All Rights Reserved.
+          </p>
+        </footer>
       </div>
     </div>
   );
