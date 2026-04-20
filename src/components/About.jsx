@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import { FaQuoteLeft } from 'react-icons/fa';
+import { sanityClient, urlFor } from '../sanityClient';
 
 const About = () => {
+  const [profileImage, setProfileImage] = useState(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const data = await sanityClient.fetch('*[_type == "profile"][0]');
+        if (data && data.image) {
+          setProfileImage(urlFor(data.image).url());
+        }
+      } catch (error) {
+        console.error("Error fetching profile from Sanity:", error);
+      }
+    };
+    fetchProfile();
+  }, []);
+
   return (
     <section id="about" className="py-8 md:py-12 min-h-[40vh] flex flex-col items-center justify-center relative">
-      {/* Centered Heading */}
       <ScrollReveal
         className="text-center mb-16 w-full"
         initial={{ opacity: 0, y: 50 }}
@@ -24,7 +40,6 @@ const About = () => {
 
       <div className="w-full flex flex-col md:flex-row items-center justify-between gap-16">
 
-        {/* Left Side: About Text & Buttons */}
         <ScrollReveal
           className="flex-1"
           initial={{ opacity: 0, x: -50 }}
@@ -57,6 +72,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 rounded-md bg-purple-600/20 text-purple-400 border border-purple-500 hover:bg-purple-600 hover:text-white transition-colors text-sm font-semibold tracking-wider uppercase"
+              onClick={() => window.open("https://drive.google.com/file/d/1WYY0dTfPr_AP_cfnV7ewJF64B5d-31hD/view?usp=drive_link", "_blank", "noreferrer")}
             >
               Download CV
             </motion.button>
@@ -96,7 +112,6 @@ const About = () => {
           </div>
         </ScrollReveal>
 
-        {/* Right Side: Profile Photo */}
         <ScrollReveal
           className="flex-1 flex justify-center md:justify-end"
           initial={{ opacity: 0, rotateY: -30 }}
@@ -105,17 +120,14 @@ const About = () => {
           viewportAmount={0.3}
         >
           <div className="relative group">
-            {/* Background Glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
 
-            {/* Image Container */}
             <div className="relative w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full border-2 border-slate-800/50 bg-slate-900 group-hover:border-cyan-500/50 transition-colors duration-500">
               <img
-                src="/profil.jpeg"
+                src={profileImage || "/profil.jpg"}
                 alt="Sanu Ahadi Waruwu Profile"
                 className="w-full h-full object-cover object-center grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"
               />
-              {/* Shine Effect */}
               <div className="absolute top-0 -left-[100%] h-full w-1/2 z-10 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine transition-opacity duration-300 pointer-events-none"></div>
             </div>
           </div>
