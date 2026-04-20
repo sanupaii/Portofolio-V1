@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ScrollReveal from './ScrollReveal';
+import ScrollReveal from '../components/ScrollReveal';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Lottie from 'lottie-react';
 import coderAnimation from '../assets/Coder.json';

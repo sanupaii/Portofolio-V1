@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import ScrollReveal from './ScrollReveal';
+import ScrollReveal from '../components/ScrollReveal';
 import { FaQuoteLeft } from 'react-icons/fa';
-import { sanityClient, urlFor } from '../sanityClient';
+import { sanityClient, urlFor } from '../lib/sanityClient';
 
 const About = () => {
   const [profileImage, setProfileImage] = useState(null);

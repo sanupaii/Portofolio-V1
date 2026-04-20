@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ScrollReveal from './ScrollReveal';
+import ScrollReveal from '../components/ScrollReveal';
 import { FaGithub, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 const Contact = () => {
   return (

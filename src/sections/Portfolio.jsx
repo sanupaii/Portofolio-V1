@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ScrollReveal from './ScrollReveal';
-import { sanityClient, urlFor } from '../sanityClient';
+import ScrollReveal from '../components/ScrollReveal';
+import { sanityClient, urlFor } from '../lib/sanityClient';
 import * as FaIcons from 'react-icons/fa';
 import * as SiIcons from 'react-icons/si';
 import {
