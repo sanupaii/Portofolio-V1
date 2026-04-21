@@ -22,8 +22,8 @@ const Hero = () => {
             Selamat Datang!
           </motion.p> */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Hi, I'm <br />
-            <span className="text-gradient-neon">Sanu Ahadi</span>
+            Frontend <br />
+            <span className="text-gradient-neon">Developer</span>
           </h1>
 
           <div className="text-xl md:text-2xl font-semibold h-8 md:h-10">
